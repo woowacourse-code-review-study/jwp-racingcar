@@ -8,15 +8,11 @@ public class Car {
     private final CarId carId;
     private Position position;
 
-    public Car(final String carName) {
-        this(carName, 0);
+    public Car(final int carId, final String carName) {
+        this(carId, carName, 0);
     }
 
-    public Car(final String carName, final int position) {
-        this(carName, position, null);
-    }
-
-    public Car(final String carName, final int position, final Integer carId) {
+    public Car(final int carId, final String carName, final int position) {
         this.carName = new CarName(carName);
         this.position = new Position(position);
         this.carId = new CarId(carId);

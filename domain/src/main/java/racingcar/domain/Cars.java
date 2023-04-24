@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,9 +19,10 @@ public class Cars {
 
     public static Cars from(final List<String> carNames) {
         validate(carNames);
-        final List<Car> cars = carNames.stream()
-                .map(Car::new)
-                .collect(Collectors.toList());
+        final List<Car> cars = new ArrayList<>();
+        for (int i = 0; i < carNames.size(); i++) {
+            cars.add(new Car(i, carNames.get(i)));
+        }
         return new Cars(cars);
     }
 

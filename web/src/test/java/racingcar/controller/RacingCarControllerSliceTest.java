@@ -52,15 +52,15 @@ class RacingCarControllerSliceTest {
         ));
         final String response = objectMapper.writeValueAsString(gameResponse);
         given(raceAddService.addRace(any(List.class), any(int.class))).willReturn(new RacingGame(1, List.of(
-                new racingcar.domain.Car("브리", 5),
-                new racingcar.domain.Car("토미", 5),
-                new racingcar.domain.Car("브라운", 5)
+                new racingcar.domain.Car(1, "브리", 5),
+                new racingcar.domain.Car(2, "토미", 5),
+                new racingcar.domain.Car(3, "브라운", 5)
         ), 10));
         given(raceFindService.findWinners(any(RacingGame.class))).willReturn(
                 new Winners(new GameId(1), List.of(
-                        new Car("브리", 5),
-                        new Car("토미", 5),
-                        new Car("브라운", 5
+                        new Car(1, "브리", 5),
+                        new Car(2, "토미", 5),
+                        new Car(3, "브라운", 5
                         ))));
 
         //expect
@@ -82,16 +82,16 @@ class RacingCarControllerSliceTest {
         final String response = objectMapper.writeValueAsString(gameResponse);
         given(raceFindService.findAllRace()).willReturn(List.of(
                 new RacingGame(1, List.of(
-                        new racingcar.domain.Car("브리", 5),
-                        new racingcar.domain.Car("토미", 5),
-                        new racingcar.domain.Car("브라운", 5)
+                        new racingcar.domain.Car(1, "브리", 5),
+                        new racingcar.domain.Car(2, "토미", 5),
+                        new racingcar.domain.Car(3, "브라운", 5)
                 ), 10)
         ));
         given(raceFindService.findWinners(any(RacingGame.class))).willReturn(
                 new Winners(new GameId(1), List.of(
-                        new Car("브리", 5),
-                        new Car("토미", 5),
-                        new Car("브라운", 5
+                        new Car(1, "브리", 5),
+                        new Car(2, "토미", 5),
+                        new Car(3, "브라운", 5
                         ))));
 
         //expect

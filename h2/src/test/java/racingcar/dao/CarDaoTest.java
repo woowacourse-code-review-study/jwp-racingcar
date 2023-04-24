@@ -38,7 +38,7 @@ class CarDaoTest {
 
     @Test
     void 자동차_전체_저장() {
-        final List<CarEntity> result = carDao.insertAll(List.of(new CarEntity("토미", 9, gameId)));
+        final List<CarEntity> result = carDao.insertAll(List.of(new CarEntity(3, "토미", 9, gameId)));
 
         assertAll(
                 () -> Assertions.assertThat(result).hasSize(1),

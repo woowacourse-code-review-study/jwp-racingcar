@@ -19,7 +19,7 @@ import racingcar.domain.Winners;
 @DisplayNameGeneration(ReplaceUnderscores.class)
 class RacingGameMapperTest {
 
-    private static final List<Car> cars = List.of(new Car("ㅁㄴㅇㄹ", 3, 1), new Car("asdf", 4, 2));
+    private static final List<Car> cars = List.of(new Car(1, "ㅁㄴㅇㄹ", 3), new Car(2, "asdf", 4));
     private static final RacingGame racingGame = new RacingGame(3, cars, 5);
 
     @Test

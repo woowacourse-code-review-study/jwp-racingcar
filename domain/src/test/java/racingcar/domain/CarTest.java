@@ -15,7 +15,7 @@ class CarTest {
 
     @BeforeEach
     void car_객체_생성() {
-        car = new Car("judy");
+        car = new Car(1, "car");
     }
 
     @Test
@@ -31,12 +31,12 @@ class CarTest {
 
     @Test
     void carName_확인() {
-        assertThat(car.getCarName()).isEqualTo("judy");
+        assertThat(car.getCarName()).isEqualTo("car");
     }
 
     @Test
     void dto_carName_status_확인() {
-        final Car car = new Car("asdf", 5);
+        final Car car = new Car(3, "asdf", 5);
 
         assertThat(car.getPosition()).isEqualTo(5);
         assertThat(car.getCarName()).isEqualTo("asdf");

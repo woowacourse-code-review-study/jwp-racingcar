@@ -29,7 +29,7 @@ public class CarEntity {
     }
 
     public Car toDomain() {
-        return new Car(name, position, carId.getValue());
+        return new Car(carId.getValue(), name, position);
     }
 
     @Override
