@@ -1,0 +1,8 @@
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation project(":domain")
+    implementation project(":h2")
+}
+
+bootJar { enabled = false }
+jar { enabled = true }
