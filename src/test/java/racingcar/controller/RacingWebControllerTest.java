@@ -1,9 +1,12 @@
 package racingcar.controller;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.hamcrest.core.Is.is;
 
 import io.restassured.RestAssured;
 import java.util.List;
+import java.util.Objects;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
@@ -53,5 +56,22 @@ public class RacingWebControllerTest {
                 .body("racingCars[0].name", is("오잉"))
                 .body("racingCars[1].name", is("포이"))
                 .body("racingCars[2].name", is("브리"));
+    }
+
+    @Test
+    void 조회_테스트() {
+        PlayRequestDto requestDto = new PlayRequestDto("오잉,포이,브리", 3);
+
+        RestAssured.given().log().all()
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .body(requestDto)
+                .post("/plays");
+        RestAssured.given().log().all()
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .body(requestDto)
+                .post("/plays");
+
+        List<Object> response = RestAssured.get("/plays").as(List.class);
+        assertThat(response.size()).isEqualTo(2);
     }
 }
